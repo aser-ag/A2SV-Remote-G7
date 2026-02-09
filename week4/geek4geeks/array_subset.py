@@ -10,9 +10,10 @@ class Solution:
             frequency[num] = frequency.get(num, 0) + 1
         
         for num in b:
-            if num not in frequency:
+            if num not in frequency or frequency[num] < 1:
                 return False
-        
+            else:
+                frequency[num] -= 1
         return True
     
     
