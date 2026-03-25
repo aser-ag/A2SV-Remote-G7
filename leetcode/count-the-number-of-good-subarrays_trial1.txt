@@ -1,0 +1,23 @@
+class Solution:
+    def countGood(self, nums: List[int], k: int) -> int:
+        from collections import defaultdict
+
+        cnt = defaultdict(int)
+        left = 0
+        pairs = 0
+        ans = 0
+
+        for right in range(len(nums)):
+            x = nums[right]
+            pairs += cnt[x]
+            cnt[x] += 1
+
+            while pairs >= k:
+                y = nums[left]
+                cnt[y] -= 1
+                pairs -= cnt[y]
+                left += 1
+
+            ans += left
+
+        return ans
