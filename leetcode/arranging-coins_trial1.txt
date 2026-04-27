@@ -1,0 +1,15 @@
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        row = 1
+        complete = 0
+
+        while n > 0:
+            n -= row
+            if n < 0:
+                break
+            else:
+                complete += 1
+                row += 1
+            
+        
+        return complete
